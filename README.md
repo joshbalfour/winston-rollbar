@@ -1,6 +1,9 @@
-# winston-transport-rollbar [![Build Status](https://secure.travis-ci.org/GorillaStack/winston-rollbar.png)](http://travis-ci.org/GorillaStack/winston-rollbar)
+# winston-rollbar
 
 Forked from https://github.com/Ideame/winston-rollbar and updated to support latest reporter and maintain longer term.
+
+Thanks also to GorillaStack for previously keeping an updated fork:
+https://github.com/GorillaStack/winston-rollbar
 
 A [rollbar][1] transport for [winston][0].
 
@@ -8,37 +11,44 @@ A [rollbar][1] transport for [winston][0].
 
 ``` sh
   $ npm install winston
-  $ npm install winston-transport-rollbar
+  $ npm install git+https://git@github.com/hipyhop/winston-rollbar.git
 ```
 
-## Usage es5
+## Usage
 ``` js
-  var winston = require('winston');
+  var winston = require("winston");
 
-  //
   // Requiring `winston-rollbar` will expose
   // `winston.transports.Rollbar`
   //
-  require('winston-transport-rollbar').Rollbar;
+  require("winston-rollbar");
 
-  winston.add(winston.transports.Rollbar, options);
+  winston.add(winston.transports.Rollbar, {
+    rollbarAccessToken: "API_TOKEN"
+    rollbarConfig: {
+      environment: "development"
+    }
+  });
 ```
-## Usage es6
+
+The Rollbar transport uses [rollbar.js][2] behind the scenes.  Options are the following:
+
+* **rollbarAccessToken**: Rollbar post server item access token.
+* **rollbarConfig**:      Rollbar configuration ([more info][3]) (optional).
+* **level**:              Level of messages this transport should log. (default: **warn**).
+* **silent**:             Boolean flag to disable reporting to Rollbar. (default: **false**).
+
+## Requests
+
+To use Rollbar's request logging include the key **request** with the value of the request object to report.
+
 ``` js
-  import winston from 'winston';
-  import wr from 'winston-transport-rollbar';
-
-  winston.add(winston.transports.Rollbar, options);
+app.use("/", (req, res) => {
+  winston.error("request example", {request: req});
+});
 ```
-
-The Rollbar transport uses [node-rollbar](https://github.com/rollbar/node_rollbar) behind the scenes.  Options are the following:
-
-* **rollbarAccessToken**:   Rollbar post server item access token.
-* **rollbarConfig**:        Rollbar configuration ([more info](https://rollbar.com/docs/notifier/node_rollbar/#configuration-reference)) (optional).
-* **metadataAsRequest**:    Uses metadata object as Rollbar's request parameter. (default: **false** will send for **meta.req** if provided)
-* **level**:                Level of messages this transport should log. (default: **warn**).
-* **silent**:               Boolean flag indicating whether to suppress output (default: **false**).
 
 [0]: https://github.com/flatiron/winston
 [1]: https://rollbar.com
-[2]: https://github.com/rollbar/node_rollbar
+[2]: https://github.com/rollbar/rollbar.js
+[3]: https://rollbar.com/docs/notifier/rollbar.js/#configuration-reference

@@ -1,3 +1,9 @@
+2.0.2 / 2017-05-30
+==================
+  * Migrated from Rollbar 0.6.2 to rollbar.js 2.0.2
+  * Updated to Winston 2.3.1
+  * Add estlintrc
+
 0.6.2 / 2016-08-23
 ==================
   * updated rollbar reference to 0.6.2
