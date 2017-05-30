@@ -1,4 +1,6 @@
-# winston-rollbar [![Build Status](https://secure.travis-ci.org/Ideame/winston-rollbar.png)](http://travis-ci.org/Ideame/winston-rollbar)
+# winston-transport-rollbar [![Build Status](https://secure.travis-ci.org/GorillaStack/winston-rollbar.png)](http://travis-ci.org/GorillaStack/winston-rollbar)
+
+Forked from https://github.com/Ideame/winston-rollbar and updated to support latest reporter and maintain longer term.
 
 A [rollbar][1] transport for [winston][0].
 
@@ -6,10 +8,10 @@ A [rollbar][1] transport for [winston][0].
 
 ``` sh
   $ npm install winston
-  $ npm install winston-rollbar
+  $ npm install winston-transport-rollbar
 ```
 
-## Usage
+## Usage es5
 ``` js
   var winston = require('winston');
 
@@ -17,7 +19,14 @@ A [rollbar][1] transport for [winston][0].
   // Requiring `winston-rollbar` will expose
   // `winston.transports.Rollbar`
   //
-  require('winston-rollbar').Rollbar;
+  require('winston-transport-rollbar').Rollbar;
+
+  winston.add(winston.transports.Rollbar, options);
+```
+## Usage es6
+``` js
+  import winston from 'winston';
+  import wr from 'winston-transport-rollbar';
 
   winston.add(winston.transports.Rollbar, options);
 ```
