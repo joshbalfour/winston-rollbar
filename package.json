@@ -1,12 +1,16 @@
 {
-  "name": "winston-rollbar",
-  "description": "An updated and actively maintained rollbar transport for winston",
-  "version": "2.0.2",
+  "name": "winston-rollbar2",
+  "description": "An updated and actively maintained Rollbar transport for Winston. Uses Rollbar v2",
+  "version": "2.0.3",
   "author": "Thomas Luff <tomfluff@gmail.com>",
+  "homepage": "https://github.com/hipyhop/winston-rollbar",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hipyhop/winston-rollbar.git"
+    "url": "hipyhop/winston-rollbar.git"
+  },
+  "bugs": {
+      "url": "https://github.com/hipyhop/winston-rollbar/issues"
   },
   "keywords": [
     "logging",
@@ -19,8 +23,5 @@
     "rollbar": "^2.0.2",
     "winston": "^2.3.1"
   },
-  "main": "./lib/winston-rollbar",
-  "engines": {
-    "node": ">= 0.12.0"
-  }
+  "main": "./lib/winston-rollbar"
 }
