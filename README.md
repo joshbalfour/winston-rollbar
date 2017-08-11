@@ -1,4 +1,4 @@
-# winston-rollbar
+# winston-rollbar2
 
 Forked from https://github.com/Ideame/winston-rollbar and updated to support latest reporter and maintain longer term.
 
@@ -10,18 +10,17 @@ A [rollbar][1] transport for [winston][0].
 ## Installation
 
 ``` sh
-  $ npm install winston
-  $ npm install git+https://git@github.com/hipyhop/winston-rollbar.git
+  $ npm install winston-rollbar2
 ```
 
 ## Usage
 ``` js
   var winston = require("winston");
 
-  // Requiring `winston-rollbar` will expose
+  // Requiring `winston-rollbar2` will expose
   // `winston.transports.Rollbar`
   //
-  require("winston-rollbar");
+  require("winston-rollbar2");
 
   winston.add(winston.transports.Rollbar, {
     rollbarAccessToken: "API_TOKEN"
